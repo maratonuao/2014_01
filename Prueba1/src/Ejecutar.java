@@ -17,7 +17,8 @@ public class Ejecutar {
      */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        
+
+        System.out.print("Aplicativo basico, solo para probar Git\n ");                
         System.out.print("Digite el numero de ejecuciones:  ");
         int veces = in.nextInt();
         
