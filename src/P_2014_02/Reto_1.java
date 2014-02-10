@@ -39,6 +39,7 @@ public class Reto_1 {
                 // Se parte la cadena para buscar cada número
                 String[] aux=linea.split("\t");
                 Integer veces;
+                Integer uno = new Integer(1);
                 for(int i=0;i<aux.length;i++)
                 {
                     if(aux[i] != null && !aux[i].equals(""))
@@ -48,7 +49,8 @@ public class Reto_1 {
                         // Con esta modificacion tarda en mi equipo 3 minutos 21 segundos
                         veces = datos.get(j);
                         if(veces!=null)
-                            datos.put(j,new Integer(veces+1));
+                            // Con esta modificacion tarda en mi equipo 3 minutos 19 segundos
+                            datos.put(j,veces+uno);
                         else
                             datos.put(j,1);
                     }                    
