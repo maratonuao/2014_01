@@ -24,11 +24,13 @@ public class Reto_1 {
         try
         {
             //Datos para lectura del archivo
-            String file="Calentamiento1.txt";
+            String file="Entrada1.txt";
             BufferedReader lector=new BufferedReader(new FileReader(new File(file)));
             String linea;
             //Tabla hash
             Hashtable <Long,Integer> datos=new Hashtable<Long,Integer>();
+            //Salida
+            StringBuilder salida=new StringBuilder();
             // Este ciclo carga los datos y los almacena en la tabla hash
             // La clave del hash es el dato que encuentra
             // El valor almacenado en el hash es la cantidad de veces que se encuentra el número repetido            
@@ -38,13 +40,17 @@ public class Reto_1 {
                 String[] aux=linea.split("\t");
                 for(int i=0;i<aux.length;i++)
                 {
-                    Long j=Long.parseLong(aux[i]);
-                    if(datos.containsKey(j))
-                        datos.put(j,Integer.parseInt(String.valueOf(datos.get(j)))+1);
-                    else
-                        datos.put(j,1);
+                    if(aux[i] != null && !aux[i].equals(""))
+                    {                        
+                        Long j=Long.parseLong(aux[i]);
+                        if(datos.containsKey(j))
+                            datos.put(j,Integer.parseInt(String.valueOf(datos.get(j)))+1);
+                        else
+                            datos.put(j,1);
+                    }                    
                 }                
             }
+            lector.close();
             Object[] keys=datos.keySet().toArray();
             // Se puede realizar el ordenamiento mediante el API de java con Arrays.sort debido a Hashtable tiene una implementacion de comparable
             // El algoritmo implementado para el ordenamiento es el mergesort por ser de tipo object
@@ -52,8 +58,7 @@ public class Reto_1 {
             // Se imprimen los datos
             for(Object k : keys)
                 System.out.println(k + " " + datos.get(Long.parseLong(k.toString())));
-            
-            // Un nuevo comentario
+            // El algoritmo tarda (total time: 2 minutes 11 seconds) con el archivo de Entrada
         }
         catch(IOException exIO)
         {
