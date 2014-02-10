@@ -38,13 +38,17 @@ public class Reto_1 {
             {
                 // Se parte la cadena para buscar cada número
                 String[] aux=linea.split("\t");
+                Integer veces;
                 for(int i=0;i<aux.length;i++)
                 {
                     if(aux[i] != null && !aux[i].equals(""))
                     {                        
                         Long j=Long.parseLong(aux[i]);
-                        if(datos.containsKey(j))
-                            datos.put(j,Integer.parseInt(String.valueOf(datos.get(j)))+1);
+                        // Si existe se retorna la cantidad, sino null
+                        // Con esta modificacion tarda en mi equipo 3 minutos 21 segundos
+                        veces = datos.get(j);
+                        if(veces!=null)
+                            datos.put(j,new Integer(veces+1));
                         else
                             datos.put(j,1);
                     }                    
