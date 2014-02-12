@@ -11,7 +11,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Hashtable;
+import java.util.HashMap;
+//import java.util.Hashtable;
 
 /**
  *
@@ -28,7 +29,12 @@ public class Reto_1 {
             BufferedReader lector=new BufferedReader(new FileReader(new File(file)));
             String linea;
             //Tabla hash
-            Hashtable <Long,Integer> datos=new Hashtable<Long,Integer>();
+//            Hashtable <Long,Integer> datos=new Hashtable<Long,Integer>();
+            long tiempoIProceso, tiempoFProceso, duracionProceso;
+
+            tiempoIProceso = System.currentTimeMillis();
+            // El trabajar con un HashMap redujo el tiempo de carga de 4024ms a 3524ms
+            HashMap <Long,Integer> datos=new HashMap<Long,Integer>();
             //Salida
             StringBuilder salida=new StringBuilder();
             // Este ciclo carga los datos y los almacena en la tabla hash
@@ -57,6 +63,10 @@ public class Reto_1 {
                 }                
             }
             lector.close();
+            tiempoFProceso = System.currentTimeMillis();
+            duracionProceso = tiempoFProceso - tiempoIProceso;
+            System.out.println("DuracionProceso="+duracionProceso+"ms \tEquivalente a "+duracionProceso/1000 + " s");
+
             Object[] keys=datos.keySet().toArray();
             // Se puede realizar el ordenamiento mediante el API de java con Arrays.sort debido a Hashtable tiene una implementacion de comparable
             // El algoritmo implementado para el ordenamiento es el mergesort por ser de tipo object
