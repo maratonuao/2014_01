@@ -14,23 +14,10 @@ import java.util.HashMap;
 
 class Propuesta_Reto2_AndresTorres {
 
-    private static String archivo = "D:\\Moodle\\Maraton\\Reto1_2014_1\\Ejercicio1\\Entrada1.txt";
-    private static String borrar = "D:\\Moodle\\Maraton\\Reto1_2014_1\\Ejercicio1\\datosBorrar.txt";
+    private static String archivo = "Entrada1.txt";
+    private static String borrar = "datosBorrar.txt";
 
-//    public static int busquedaBinaria(Object[] Keys, long dato) {
-//        int pos = (Keys.length - 1) / 2;
-//
-//        while (pos != 0) {
-//            if (Long.parseLong(Keys[pos].toString()) - dato < 0) {
-//                pos++;
-//            } else if (Long.parseLong(Keys[pos].toString()) - dato > 0) {
-//                pos--;
-//            } else {
-//                return pos;	// !! Lo encontró...retórnelo !!
-//            }
-//        }
-//        return -1;
-//    }
+
     public static void mostrarArchivo(String nombre) {
         File archivo = null;
         FileReader fr = null;
@@ -263,8 +250,7 @@ class Propuesta_Reto2_AndresTorres {
         Arrays.sort(Keys);
         mostrar(arr, Keys);
 
-//        System.out.println(arr.size());
-//        System.out.println("-------------------------------------------------");
+        
         tiempoFSalida = System.currentTimeMillis();
         duracionSalida = tiempoFSalida - tiempoISalida;
 //-----------------------------------------------------------------------------
