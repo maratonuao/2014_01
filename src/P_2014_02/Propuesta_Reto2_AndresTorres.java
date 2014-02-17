@@ -15,7 +15,7 @@ import java.util.HashMap;
 class Propuesta_Reto2_AndresTorres {
 
     private static String archivo = "D:\\Moodle\\Maraton\\Reto1_2014_1\\Ejercicio1\\Entrada1.txt";
-    private static String borrar = "D:\\Moodle\\Maraton\\Reto1_2014_1\\Ejercicio1\\salidaReto1.txt";
+    private static String borrar = "D:\\Moodle\\Maraton\\Reto1_2014_1\\Ejercicio1\\datosBorrar.txt";
 
 //    public static int busquedaBinaria(Object[] Keys, long dato) {
 //        int pos = (Keys.length - 1) / 2;
@@ -158,7 +158,10 @@ class Propuesta_Reto2_AndresTorres {
             while ((linea = br.readLine()) != null) {
                 //Agregado
                 entradas = linea.split(" ");
-
+                System.out.println(entradas[1]);
+                if(entradas[1].contains("\t")){
+                    entradas[1] = "0" + entradas[1].charAt(1);
+                }
                 Elementos.put(Long.parseLong(entradas[0]), Integer.parseInt(entradas[1]));
             }
             //Fin agregado
