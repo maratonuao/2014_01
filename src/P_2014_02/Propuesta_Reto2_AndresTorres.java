@@ -149,8 +149,7 @@ class Propuesta_Reto2_AndresTorres {
             fr = new FileReader(archivo);
             br = new BufferedReader(fr);
             //Agregado
-            String[] entradas;
-            Integer k = new Integer(1);
+            String[] entradas;            
 
             //fin agregado
             // Lectura del fichero
@@ -158,7 +157,7 @@ class Propuesta_Reto2_AndresTorres {
             while ((linea = br.readLine()) != null) {
                 //Agregado
                 entradas = linea.split(" ");
-                System.out.println(entradas[1]);
+//                System.out.println(entradas[1]);
                 if(entradas[1].contains("\t")){
                     entradas[1] = "0" + entradas[1].charAt(1);
                 }
