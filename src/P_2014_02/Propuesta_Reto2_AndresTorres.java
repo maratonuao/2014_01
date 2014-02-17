@@ -149,7 +149,7 @@ class Propuesta_Reto2_AndresTorres {
             fr = new FileReader(archivo);
             br = new BufferedReader(fr);
             //Agregado
-            String[] entradas;            
+            String[] entradas;
 
             //fin agregado
             // Lectura del fichero
@@ -158,9 +158,10 @@ class Propuesta_Reto2_AndresTorres {
                 //Agregado
                 entradas = linea.split(" ");
 //                System.out.println(entradas[1]);
-                if(entradas[1].contains("\t")){
-                    entradas[1] = "0" + entradas[1].charAt(1);
+                if (entradas[1].contains("\t")) {
+                    entradas[1] = entradas[1].replace("\t", "0");
                 }
+
                 Elementos.put(Long.parseLong(entradas[0]), Integer.parseInt(entradas[1]));
             }
             //Fin agregado
@@ -249,23 +250,25 @@ class Propuesta_Reto2_AndresTorres {
         tiempoIBorrado = System.currentTimeMillis();
 
         arr = Borrador(arr, borrar, Keys);
-        System.out.println(arr.size());
+//        System.out.println(arr.size());
+        
         tiempoFBorrado = System.currentTimeMillis();
         duracionBorrado = tiempoFBorrado - tiempoIBorrado;
 
 //------------------------------------------------------------------------------        
-// Generacion de la salida
+        // Generacion de la salida
         tiempoISalida = System.currentTimeMillis();
         // Actualizar con el proceso propuesto        
         Keys = arr.keySet().toArray();
         Arrays.sort(Keys);
         mostrar(arr, Keys);
 
-        System.out.println(arr.size());
-        System.out.println("-------------------------------------------------");
+//        System.out.println(arr.size());
+//        System.out.println("-------------------------------------------------");
         tiempoFSalida = System.currentTimeMillis();
         duracionSalida = tiempoFSalida - tiempoISalida;
-
+//-----------------------------------------------------------------------------
+        
         System.out.println("DuracionLectura=" + duracionLectura + "ms \tEquivalente a " + duracionLectura / 1000 + " s"
                 + "\nDuracionProceso=" + duracionProceso + "ms \tEquivalente a " + duracionProceso / 1000 + " s"
                 + "\nDuracionSalida=" + duracionSalida + "ms \tEquivalente a " + duracionSalida / 1000 + " s"
